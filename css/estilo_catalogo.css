@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #000000;
+	color: #fff;
+}
+
+header {
+	width: 100%;
+	height: 600px;
+	background: #333333;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, rgba(221, 24, 24, 0.6), rgba(51, 51, 51, 0.6)), url(../recursos/portada.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgba(221, 24, 24, 0.6), rgba(51, 51, 51, 0.6)), url(../recursos/portada.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+
+nav {
+	text-align: right;
+	padding: 30px 50px 0 0;
+}
+
+nav > a {
+	color: #fff;
+	font-weight: 300;
+	text-decoration: none;
+	margin-right: 10px;
+}
+
+nav > a:hover {
+	text-decoration: underline;	
+}
+
+header .textos-header {
+	display: flex;
+	height: 430px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.textos-header h1 {
+	font-size: 50px;
+	color: #fff;
+}
+
+.textos-header h2 {
+	font-size: 30px;
+	font-weight: 300;
+	color: #fff;
+}
+
+.wave {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.galeria {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	width: 95%;
+	margin: auto;
+	grid-gap: 10px;
+	padding: 40px 0;
+	overflow: hidden;
+}
+
+.galeria img {
+	width: 100%;
+	vertical-align: top;
+	height: 600px;
+	object-fit: cover;
+	transition: transform 0.5s;
+}
+
+.galeria > a {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+}
+
+.galeria a:hover img {
+	filter: blur(5px);
+	transform: rotate(10deg) scale(1.3);
+}
+
+.light-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .5);
+	transition: transform .3s ease-in-out;
+	width: 100%;
+	height: 100vh;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: scale(0);
+}
+
+.light-box img {
+	width: 50vw;
+	max-height: 90vh;
+	opacity: 0.8;
+}
+
+.light-box:target {
+	transform: scale(1);
+}
+
+.close {
+	display: block;
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	background: #851919;
+	color: #fff;
+	text-decoration: none;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 400px) {
+	.galeria {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+
+	.close {
+		top: 20px;
+		right: 20px;
+	}
+}
